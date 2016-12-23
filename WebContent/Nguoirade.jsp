@@ -86,7 +86,7 @@
 				</div>
 				<div class="row">
 						<div class="btn-group btn-group-lg-right" role="group" aria-label="...">
-							 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>
+							 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Tạo đề thi</button>
 							 <td style="padding-left: 25px;">
 											<!-- Modal -->
 											<div id="myModal" class="modal fade" role="dialog">
@@ -99,7 +99,7 @@
 														<h4 class="modal-title">Thông tin đề thi</h4>
 													</div>
 													<div class="modal-body">
-														<form action="" method="" role="form">
+														<form action="NRD_DeThi" method="post" role="form">
 															<div class="form-group">
 																<label for="">Mã đề thi</label>
 																<input type="text" class="form-control" id="" name="madethi" placeholder="Mã đề thi">
@@ -109,9 +109,7 @@
 																<input type="text" class="form-control" id="" name="thoigian"placeholder="Thời gian làm bài">
 															</div>
 															<div class="modal-footer">
-															<button value="add" class="btn btn-primary">Add</button>
-															<button value="change" class="btn btn-primary">Change</button>		
-															<button value="delete" class="btn btn-warning">Delete</button>
+															<button type="submit" class="btn btn-primary" id="btn-add" onclick="return alert('Tạo đề thi thành công')">Add</button>
 															<button class="btn btn-danger" data-dismiss="modal">Close</button>
 															</div>
 														</form>

@@ -21,7 +21,7 @@ public class KyThiDAO {
 					kythi.setMaDe(rs.getString("maDe"));
 					kythi.setMaMH(rs.getString("maMH"));
 					kythi.setNgayThi(rs.getDate("ngayThi"));
-					kythi.setThoigianthi(rs.getTime("thoigianthi"));
+					kythi.setThoigianthi(rs.getString("thoigianthi"));
 					kythi.setPhongThi(rs.getString("phongThi"));
 					list.add(kythi);
 				}
@@ -42,7 +42,7 @@ public class KyThiDAO {
 				ps.setString(1, kt.getMaDe());
 				ps.setString(2, kt.getMaMH());
 				ps.setDate(3, kt.getNgayThi());
-				ps.setTime(4, kt.getThoigianthi());
+				ps.setString(4, kt.getThoigianthi());
 				ps.setString(5, kt.getPhongThi());
 				ps.executeUpdate();
 				
@@ -57,7 +57,7 @@ public class KyThiDAO {
 			String sql="update KyThi set Thoigianthi=?, NgayThi=?, PhongThi=? where MaDe=? and MaMH=?";
 			PreparedStatement ps=con.prepareCall(sql);
 			try{
-				ps.setTime(1,kt.getThoigianthi());
+				ps.setString(1,kt.getThoigianthi());
 				ps.setDate(2, kt.getNgayThi());
 				ps.setString(3, kt.getPhongThi());
 				ps.setString(4, kt.getMaDe());
@@ -97,7 +97,7 @@ public class KyThiDAO {
 					thi.setNgayThi(rs.getDate("NgayThi"));
 					thi.setPhongThi(rs.getString("PhongThi"));
 					thi.setMaMH(rs.getString("MaMH"));
-					thi.setThoigianthi(rs.getTime("Thoigianthi"));
+					thi.setThoigianthi(rs.getString("Thoigianthi"));
 				}
 				
 			}catch(SQLException ex){

@@ -119,7 +119,7 @@
 												</script>
 										</c:when>
 										<c:when test="${l.perUser=='qlnhch'}">
-										<script>
+											<script>
 										var s = document.getElementById('<c:out value="${l.userName}"></c:out>');
 												s.selectedIndex = 4;
 												</script>

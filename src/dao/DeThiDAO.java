@@ -40,7 +40,7 @@ public class DeThiDAO {
 		Connection con = DBConnect.getConnection();
 		String sql = "insert into DeThi(MaDe,NDungDe,Thoigian) values(?,?,?)";
 		try {
-			PreparedStatement ps = con.prepareCall(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, dt.getMaDe());
 			ps.setString(2, dt.getNDungDe());

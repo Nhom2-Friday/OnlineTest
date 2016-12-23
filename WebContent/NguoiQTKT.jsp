@@ -89,34 +89,39 @@
 									</table>
 								</div>
 								<div class="row">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Mở đề thi</button>
-										<div class="modal fade" id="myModal" role="dialog">
-										    <div class="modal-dialog">
-										      <div class="modal-content">
-										        <div class="modal-header">
-										          <button type="button" class="close" data-dismiss="modal">&times;</button>
-										          <h4 class="modal-title">Mở đề thi</h4>
-										        </div>
-										        <div class="modal-body">
-										        	<form action="" method="post" role="form">
+								<div class="btn-group btn-group-lg-right" role="group" aria-label="...">
+							 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Mở đề thi</button>
+							 			<td style="padding-left: 25px;">
+											<!-- Modal -->
+											<div id="myModal" class="modal fade" role="dialog">
+											<div class="modal-dialog">
+										      <!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title">Thông tin kỳ thi</h4>
+													</div>
+													<div class="modal-body">
+										        	<form action="QTKT_KyThi" method="post" role="form">
 															<div class="form-group">
 																<label for="">Mã đề thi</label>
-																<input type="text" class="form-control" id="made" placeholder="Mã đề thi">
+																<input type="text" class="form-control" id="madethi" name="madethi" placeholder="Mã đề thi">
 																<label for="">Mã môn học</label>							
-																<input type="text" class="form-control" id="mamonhoc" placeholder="Mã đề thi">	
+																<input type="text" class="form-control" id="mamonhoc" name="mamonhoc" placeholder="Mã môn học">	
 																<label for="">Ngày thi</label>
 																<input type="date" class="form-control" id="ngaythi" name="ngaythi" placeholder="Ngày thi">
 																<label for="">Thời gian thi</label>
-																<input type="time" class="form-control" id="thoigianthi" name="time" placeholder="Thời gian thi">
+																<input type="text" class="form-control" id="thoigianthi" name="time" placeholder="Thời gian thi">
 																<label for="">Phòng thi</label>
 																<input type="text" class="form-control" id="diadiemthi" name="phongthi"placeholder="Địa điểm thi">
 															</div>
+															<div class="modal-footer">
+										          <button type="submit" class="btn btn-primary" >Xác nhận</button>
+										          <button  class="btn btn-warning" data-dismiss="modal">Hủy</button>
+										        </div>
 													</form>
 										        </div>
-										        <div class="modal-footer">
-										          <button value="xacnhan" class="btn btn-primary" data-dismiss="modal">Xác nhận</button>
-										          <button value="huy" class="btn btn-warning" data-dismiss="modal">Hủy</button>
-										        </div>
+										        
 										      </div>
 										      
 										    </div>

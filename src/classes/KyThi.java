@@ -6,7 +6,7 @@ import java.sql.Time;
 public class KyThi {
 	private String MaDe;
 	private String MaMH;
-	private Time Thoigianthi;
+	private String Thoigianthi;
 	private Date NgayThi;
 	private String PhongThi;
 	public KyThi() {
@@ -15,7 +15,7 @@ public class KyThi {
 	}
 	
 	
-	public KyThi(String maDe, String maMH, Time thoigianthi, Date ngayThi, String phongThi) {
+	public KyThi(String maDe, String maMH, String thoigianthi, Date ngayThi, String phongThi) {
 		super();
 		MaDe = maDe;
 		MaMH = maMH;
@@ -45,12 +45,12 @@ public class KyThi {
 	}
 
 
-	public Time getThoigianthi() {
+	public String getThoigianthi() {
 		return Thoigianthi;
 	}
 
 
-	public void setThoigianthi(Time thoigianthi) {
+	public void setThoigianthi(String thoigianthi) {
 		Thoigianthi = thoigianthi;
 	}
 

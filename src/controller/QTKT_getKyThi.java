@@ -54,16 +54,16 @@ public class QTKT_getKyThi extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8"); 
 		request.setCharacterEncoding("UTF-8");
-		String MaDe = request.getParameter("made");
+		String MaDe = request.getParameter("madethi");
 		String MaMH = request.getParameter("mamonhoc");
 		String Ngaythi = request.getParameter("ngaythi");
 		String Thoigianthi = request.getParameter("time");
 		String PhongThi = request.getParameter("phongthi");
 		KyThi kt = new KyThi();
-		kt.setMaDe(request.getParameter("made"));
+		kt.setMaDe(request.getParameter("madethi"));
 		kt.setMaMH(request.getParameter("mamonhoc"));
 		kt.setNgayThi(Date.valueOf(Ngaythi));
-		kt.setThoigianthi(Time.valueOf(Thoigianthi));
+		kt.setThoigianthi(request.getParameter("time"));
 		kt.setPhongThi(request.getParameter("phongthi"));
 		KyThiDAO dao = new KyThiDAO();
 		dao.insertKyThi(kt);

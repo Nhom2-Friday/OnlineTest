@@ -64,6 +64,9 @@ public class getUser extends HttpServlet {
 			session.setAttribute("role","qlnhch");
 			response.sendRedirect("QLNHCH_Question");
 			break;
+		case "stu":
+			session.setAttribute("role","stu");
+			response.sendRedirect("Student");
 			default:
 				break;
 		}

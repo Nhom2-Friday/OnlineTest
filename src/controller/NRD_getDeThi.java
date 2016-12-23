@@ -52,7 +52,7 @@ public class NRD_getDeThi extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8"); 
 		request.setCharacterEncoding("UTF-8");
 		DeThi dt = new DeThi();
-		dt.setMaDe(request.getParameter("made"));
+		dt.setMaDe(request.getParameter("madethi"));
 		dt.setNDungDe(request.getParameter("ndungde"));
 		dt.setThoigian(request.getParameter("thoigian"));
 		DeThiDAO dao = new DeThiDAO();
