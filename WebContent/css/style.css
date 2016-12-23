@@ -1,0 +1,33 @@
+.no-margin
+{
+	margin: 0px;
+}
+.no-padding
+{
+	padding: 0px;
+}
+.site-footer
+{
+	background-color: #222;
+	color: #fff;
+	margin-top: 30px;
+	padding-top: 30px;
+}
+.bottom-footer
+{
+	border-top: 1px solid #b2b2b2;
+	nargin-top: 10px;
+	padding-top: 10px;
+	color:  #b2b2b2;
+}
+.footer-nav
+{
+	text-align: right;
+	list-style: none;
+}
+.footer-nav li
+{
+	display: inline;
+	padding: 0px 10px;
+}
+#success_message{ display: none;}
