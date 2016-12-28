@@ -83,7 +83,7 @@ public class QuestionDAO {
 	}
 	//Xóa câu hỏi
 	
-	public boolean delete(String qID) {
+	public static boolean delete(String qID) {
 		Connection con = DBConnect.getConnection();
 		String sql = "delete from Question where qID='" + qID + "'";
 		PreparedStatement ps;

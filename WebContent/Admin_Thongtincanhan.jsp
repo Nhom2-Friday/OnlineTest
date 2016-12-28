@@ -9,11 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Thông tin cá nhân admin</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <script type="text/javascript" src="Jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/JavarScript/DieuHuongTrang.js"></script>
 <script type="text/javascript" src="Jquery/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -76,7 +77,7 @@
 						<tbody id="dstk">
 						
 							<c:forEach var="l" items="${list}" >	 
-								<tr>
+								<tr id="tr_${l.userName}">
 								<td>${l.userName}</td>
 								<td>${l.pssword }</td>			
 								<td>${l.email}</td>
@@ -132,41 +133,38 @@
 										</c:otherwise>
 									</c:choose>
 								</td>
-								<td><button type="button" class="btn btn-default">Xóa tài khoản</button></td>						
+								<td><button type="button" class="btn btn-default delete_user_btn">Xóa tài khoản</button></td>						
 								</tr>
 								
 							</c:forEach>
 						<tbody>	
 					</table>					
 				</div>
-	<div id="editmodal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Thêm tài khoản</h4>
-					<div id="rfailMessage" class="hidden"
-						style="color: white; background-color: #F44336; margin: 10px 0px; padding: 5px;">
-						<span class="h5"> Thêm không thành công, vui lòng thử lại !</span>
-					</div>
-					<div id="rsuccessMessage" class="hidden"
-						style="color: white; background-color: #43A047; margin: 10px 0px; padding: 5px;">
-						<span class="h5"> Thêm thành công !</span>
-					</div>
-				</div>
-				<div class="modal-body">
-					<form id="registerForm" action="register" method="" role="form">
+				<div class="row">
+					<div class="btn-group btn-group-lg-right" role="group" aria-label="...">
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Thêm tài khoản</button>
+							 <td style="padding-left: 25px;">
+							 <!-- Modal -->
+									<div id="myModal" class="modal fade" role="dialog">
+											<div class="modal-dialog">
+										      <!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title">Thông tin kỳ thi</h4>
+													</div>
+			<div class="modal-body">
+					<form action="Admin" method="post" role="form">
 						<div class="form-group">
-							<label for="username">Tên đăng nhập</label> <input name="username"
+							<label for="username">User Name</label> <input name="username"
 								type="text" class="form-control" id="username" placeholder="">
 						</div>
 						<div class="form-group">
-							<label for="email">Email</label> <input name="email"
+							<label for="email">Địa chỉ email</label> <input name="email"
 								type="text" class="form-control" id="email" placeholder="">
 						</div>
 						<div class="form-group">
-							<label for="password-register">Mật khẩu</label> <input
+							<label for="password">Mật khẩu</label> <input
 								name="password" type="password" class="form-control"
 								id="password-register" placeholder="">
 						</div>
@@ -177,15 +175,17 @@
 						</div>
 						<button type="submit" class="hidden" id="registerFormSubmit">Submit</button>
 					</form>
-				</div>
 				<div class="modal-footer">
-					<label for="registerFormSubmit" class="btn btn-primary">Xác nhận</label>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+					<button type="submit" class="btn btn-primary" >Xác nhận</button>
+					<button  class="btn btn-warning" data-dismiss="modal">Hủy</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	</div>
+	</td>
+	</div>
+									  	
 	<!-- Success PopUp Modal -->
 	<div id="success-pu" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -221,6 +221,11 @@
 	</br>
 	</br>
 	</br>
+	<div visibility="hidden">
+		<form id="delete_user_form" action="DeleteUser" method="post">
+			<input name="user_id" id="delete_user_id_input"/>
+		</form>
+	</div>
 <footer class="site-footer">
 	<div class="container">
 		<div class="row">
@@ -237,5 +242,16 @@
 		</div>
 	</div>
 </footer>
+<script>
+	function deleteUser(){
+		var user_id = this.parentNode.parentNode.getAttribute('id');
+		document.getElementById('delete_user_id_input').setAttribute('value',user_id);
+		document.getElementById('delete_user_form').submit();
+	}
+	var delete_user_btns = document.getElementsByClassName('delete_user_btn');
+	for (var i=0;i<delete_user_btns.length;i++) {
+		delete_user_btns[i].addEventListener('click', deleteUser);
+	}
+</script>
 </body>
 </html>

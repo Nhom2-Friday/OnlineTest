@@ -6,12 +6,15 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 
 
 import classes.ClassUser;
 import classes.Users;
 import connect.DBConnect;
+
 
 
 
@@ -54,8 +57,6 @@ public class userDAO {
 		return list;
 	}
 
-	
-	
 	public static  Users getUser(String userName,String pssword) {
 		Users user = null;
 		try {
@@ -77,6 +78,38 @@ public class userDAO {
 		}
 		return user;
 	}
+	
+	public static boolean deleteUser(String userName){
+    	Connection con = DBConnect.getConnection();
+    	String sql="delete from Users where UserName='"+userName+"'";
+    	PreparedStatement ps;
+    	try {
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE,null,e);
+        }
+    	return false;
+    }
+	
+	public boolean insertUsers(Users u )
+    {
+        Connection connect= DBConnect.getConnection();
+        String sql="Insert into Users values (?,?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement ps=connect.prepareCall(sql);
+            ps.setString(1,u.getUserName());
+            ps.setString(2,u.getPssword());
+            ps.setString(3,u.getEmail());
+            ps.setString(4,u.getPerUser());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+             Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE,null,e);
+        }
+        return false;
+    }
 	
 	
 }

@@ -1,11 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,25 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
 import classes.DeThi;
+import classes.Question;
 import classes.Users;
-import dao.DeThiDAO;
+import dao.QuestionDAO;
+import dao.RoleDAO;
 import dao.userDAO;
 
-
 /**
- * Servlet implementation class Admin_getUsersList
+ * Servlet implementation class DeleteUser
  */
-@WebServlet("/Admin")
-public class Admin_getUsersList extends HttpServlet {
+@WebServlet("/DeleteUser")
+public class DeleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Admin_getUsersList() {
+    public DeleteUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,6 +35,7 @@ public class Admin_getUsersList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request.getRequestDispatcher("/Admin_Thongtincanhan.jsp").forward(request, response);
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
     	ArrayList<Users> list = new ArrayList<>();
@@ -56,16 +52,17 @@ public class Admin_getUsersList extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8"); 
-		request.setCharacterEncoding("UTF-8");
-		Users us = new Users();
-		us.setUserName(request.getParameter("username"));
-		us.setPssword(request.getParameter("password"));
-		us.setEmail(request.getParameter("email"));
-		us.setPerUser(request.getParameter("perUser"));
+		
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
+		String UserName = request.getParameter("user_id").substring(3);
+		//Users us = new Users();
+		System.out.println(UserName);
 		userDAO dao = new userDAO();
-		dao.insertUsers(us);
-		doGet(request, response);
+		dao.deleteUser(UserName);
+		doGet(request, response);	
+		//response.sendRedirect("/Admin");
+		//response.sendRedirect("/Admin");
 	}
 
 }

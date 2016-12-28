@@ -89,7 +89,7 @@
 						<div class="form-group has-feedback">
 						<div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-				      		<button id="contactbtn" type="button" class="btn btn-default">Lưu</button>
+				      		<button id="contactbtn" type="button" class="btn btn-default" onclick="return alert('Cập nhật thành công!')">Lưu</button>
 					    </div>
 					  	</div>
 					  	</div>
